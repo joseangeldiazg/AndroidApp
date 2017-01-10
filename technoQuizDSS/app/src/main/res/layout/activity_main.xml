@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
@@ -10,14 +11,9 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.joseadiazg.technoquizdss.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!" />
-
     <Button
-        android:text="Button"
-        android:layout_width="wrap_content"
+        android:text="Estadisticas"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="55dp"
         android:id="@+id/button2"
@@ -26,8 +22,8 @@
         android:layout_alignStart="@+id/button" />
 
     <Button
-        android:text="Button"
-        android:layout_width="wrap_content"
+        android:text="Mas Juegos"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/button3"
         android:layout_below="@+id/button2"
@@ -36,11 +32,33 @@
         android:layout_marginTop="17dp" />
 
     <Button
-        android:text="Button"
-        android:layout_width="wrap_content"
+        android:text="Jugar"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/button"
-        android:layout_below="@+id/textView"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="187dp" />
+        android:layout_marginBottom="116dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/intro"
+        android:id="@+id/imageView3"
+        android:layout_marginBottom="101dp"
+        android:layout_above="@+id/button"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:text="Bienvenido a TechnoQuiz. Vamos a ver si eres un verdadero experto en música electrónica..."
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="28dp"
+        android:id="@+id/textView2"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:layout_above="@+id/button"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 </RelativeLayout>
