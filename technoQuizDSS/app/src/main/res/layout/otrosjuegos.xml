@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:text="Juego 1"
+        android:layout_width="match_parent"
+        android:layout_height="41dp"
+        android:id="@+id/textView3"
+        android:textSize="24sp"
+        android:textAlignment="center" />
+
+    <WebView
+        android:id="@+id/webView1"
+        android:layout_width="match_parent"
+        android:layout_height="160dp" />
+
+    <TextView
+        android:text="Juego 2"
+        android:layout_width="match_parent"
+        android:layout_height="41dp"
+        android:id="@+id/textView4"
+        android:textSize="24sp"
+        android:textAlignment="center" />
+
+    <WebView
+        android:id="@+id/webView2"
+        android:layout_width="match_parent"
+        android:layout_height="160dp" />
+
+</LinearLayout>
