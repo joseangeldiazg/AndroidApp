@@ -2,12 +2,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:weightSum="1">
 
     <TextView
         android:text="Juego 1"
         android:layout_width="match_parent"
-        android:layout_height="41dp"
+        android:layout_height="0dp"
+        android:layout_weight=".05"
         android:id="@+id/textView3"
         android:textSize="24sp"
         android:textAlignment="center" />
@@ -15,19 +17,22 @@
     <WebView
         android:id="@+id/webView1"
         android:layout_width="match_parent"
-        android:layout_height="160dp" />
+        android:layout_height="0dp"
+        android:layout_weight=".45"/>
 
     <TextView
         android:text="Juego 2"
         android:layout_width="match_parent"
-        android:layout_height="41dp"
+        android:layout_height="0dp"
         android:id="@+id/textView4"
+        android:layout_weight=".05"
         android:textSize="24sp"
         android:textAlignment="center" />
 
     <WebView
         android:id="@+id/webView2"
         android:layout_width="match_parent"
-        android:layout_height="160dp" />
+        android:layout_height="0dp"
+        android:layout_weight=".45"/>
 
 </LinearLayout>
