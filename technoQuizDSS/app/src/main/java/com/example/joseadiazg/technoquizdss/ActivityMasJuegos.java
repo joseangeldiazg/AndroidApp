@@ -8,7 +8,7 @@ import android.webkit.WebView;
  * Created by joseadiazg on 25/1/17.
  */
 
-public class MasJuegos extends AppCompatActivity
+public class ActivityMasJuegos extends AppCompatActivity
 {
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -22,7 +22,6 @@ public class MasJuegos extends AppCompatActivity
 
         WebView juego2= (WebView) this.findViewById(R.id.webView2);
         juego2.loadUrl("http://growsoundmag.com/category/alternativo/");
-
 
     }
 }

@@ -12,12 +12,21 @@ public class Pregunta
     private String pregunta;
     private ArrayList<String> respuestas;
     private int tipo;
+    private String imagen;
+    private String sonido;
+
 
     public Pregunta(String pregunta, String correcta1, String incorrecta1,
-                    String incorrecta2, String incorrecta3, int tipo)
+                    String incorrecta2, String incorrecta3, int tipo,
+                    String imagen, String sonido)
     {
         this.pregunta=pregunta;
         this.tipo=tipo;
+
+        this.imagen=imagen;
+        this.sonido=sonido;
+
+        respuestas=new ArrayList<>();
 
         respuestas.add(0,correcta1);
         respuestas.add(1,incorrecta1);

@@ -8,7 +8,7 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button b1;
+    Button b1, b2, b3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -16,17 +16,27 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //Obtenemos las vistas de los juegos que abriremos en el activity relacionado con los nuevos juego
 
+        b1 = (Button) findViewById(R.id.button);
+        b2 = (Button) findViewById(R.id.button2);
+        b3 = (Button) findViewById(R.id.button3);
 
-        b1 = (Button) findViewById(R.id.button3);
 
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(view.getContext(), MasJuegos.class);
+                Intent intent = new Intent(view.getContext(), ActivityJuego.class);
                 startActivityForResult(intent, 0);
             }
         });
+
+        b3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(), ActivityMasJuegos.class);
+                startActivityForResult(intent, 0);
+            }
+        });
+
     }
 }

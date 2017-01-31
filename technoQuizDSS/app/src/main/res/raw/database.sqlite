@@ -1,31 +1,38 @@
-CREATE TABLE 'preguntas' (
+CREATE TABLE `preguntas` (
     _id INTEGER AUTO INCREMENT PRIMARY KEY,
-    'pregunta' VARCHAR(256),
-    'respuesta_correcta' VARCHAR(32) NOT NULL,
-    'respuesta_incorrecta_1' VARCHAR(32) NOT NULL,
-    'respuesta_incorrecta_2' VARCHAR(32) NOT NULL,
-    'respuesta_incorrecta_3' VARCHAR(32) NOT NULL,
-    'respuesta_incorrecta_4' VARCHAR(32) DEFAULT NULL,
-    'respuesta_incorrecta_5' VARCHAR(32) DEFAULT NULL,
-    'respuesta_incorrecta_6' VARCHAR(32) DEFAULT NULL,
-    'respuesta_incorrecta_7' VARCHAR(32) DEFAULT NULL,
-    'dificultad' CHARACTER NOT NULL DEFAULT 'f',
-    'categoria' CHARACTER NOT NULL DEFAULT 'Z',
-    'pregunta_tipo' VARCHAR(32) NOT NULL
+    `pregunta` VARCHAR(256),
+    `respuesta_correcta` VARCHAR(32) NOT NULL,
+    `respuesta_incorrecta_1` VARCHAR(32) NOT NULL,
+    `respuesta_incorrecta_2` VARCHAR(32) NOT NULL,
+    `respuesta_incorrecta_3` VARCHAR(32) NOT NULL,
+    `dificultad` CHARACTER NOT NULL DEFAULT 'F',
+    `categoria` CHARACTER NOT NULL DEFAULT 'H',
+    `imagen` VARCHAR(32) DEFAULT "NULL",
+    `sonido` VARCHAR(32) DEFAULT "NULL",
+    `tipo` INTEGER NOT NULL
 );
 
--- Dificultad: f=facil, d=Dificil
+--Dificultad
 
--- Categoria: H=Historia, M=Musica, D=Artistas, C=Clubs
+--F: Facil
+--D: Dificil
 
--- pregunta_tipo: 0=texto, 1=imagen, 2=sonido
 
-INSERT INTO 'preguntas' ('pregunta', 'respuesta_correcta', 'respuesta_incorrecta_1',
- 'respuesta_incorrecta_2', 'respuesta_incorrecta_3', 'categoria', 'pregunta_tipo')
-VALUES("Cual de estas ciudades no está asociada con la aparición de la música electrónica?",
-     "New York", "Detroit", "Chicago", "Berlin", "H", '0');
+--Categoria
 
-INSERT INTO 'preguntas' ('pregunta', 'respuesta_correcta', 'respuesta_incorrecta_1',
- 'respuesta_incorrecta_2', 'respuesta_incorrecta_3', 'categoria', 'pregunta_tipo')
-VALUES("¿Qué club es considerado el mejor del mundo?",
-     "Berghain\Panorama Bar", "Fabric", "Ushuaia", "Industrial Copera", "C", '0');
+--H: Historia
+--C: Música
+--A: Artistas
+
+
+-- tipo
+
+-- 1: texto
+-- 2: imagen
+-- 3: sonido
+
+INSERT INTO `preguntas` (`pregunta`, `respuesta_correcta`, `respuesta_incorrecta_1`, `respuesta_incorrecta_2`, `respuesta_incorrecta_3`, `categoria`, `tipo`)
+VALUES("¿Cual de estas ciudades no se asocia con el nacimiento de la electrónica?.", "New York", "Detroit", "Chicago", "Berlín", "H",1);
+
+INSERT INTO `preguntas` (`pregunta`, `respuesta_correcta`, `respuesta_incorrecta_1`, `respuesta_incorrecta_2`, `respuesta_incorrecta_3`, `categoria`, `tipo`)
+VALUES("¿Cual de estos clubs es considerado el mejor del mundo?.", "Berghain", "Ushuaia", "Industrial Copera", "Tresor", "H",1);
