@@ -11,6 +11,7 @@ public class Pregunta
 
     private String pregunta;
     private ArrayList<String> respuestas;
+
     private int tipo;
     private String imagen;
     private String sonido;
@@ -21,8 +22,8 @@ public class Pregunta
                     String imagen, String sonido)
     {
         this.pregunta=pregunta;
-        this.tipo=tipo;
 
+        this.tipo=tipo;
         this.imagen=imagen;
         this.sonido=sonido;
 
@@ -32,6 +33,21 @@ public class Pregunta
         respuestas.add(1,incorrecta1);
         respuestas.add(2, incorrecta2);
         respuestas.add(3, incorrecta3);
+    }
+
+    public String getImagen()
+    {
+      return imagen;
+    }
+
+    public  String getSonido()
+    {
+        return sonido;
+    }
+
+    public int getTipo()
+    {
+        return tipo;
     }
 
     public String getPregunta()
