@@ -1,0 +1,31 @@
+CREATE TABLE 'preguntas' (
+    _id INTEGER AUTO INCREMENT PRIMARY KEY,
+    'pregunta' VARCHAR(256),
+    'respuesta_correcta' VARCHAR(32) NOT NULL,
+    'respuesta_incorrecta_1' VARCHAR(32) NOT NULL,
+    'respuesta_incorrecta_2' VARCHAR(32) NOT NULL,
+    'respuesta_incorrecta_3' VARCHAR(32) NOT NULL,
+    'respuesta_incorrecta_4' VARCHAR(32) DEFAULT NULL,
+    'respuesta_incorrecta_5' VARCHAR(32) DEFAULT NULL,
+    'respuesta_incorrecta_6' VARCHAR(32) DEFAULT NULL,
+    'respuesta_incorrecta_7' VARCHAR(32) DEFAULT NULL,
+    'dificultad' CHARACTER NOT NULL DEFAULT 'f',
+    'categoria' CHARACTER NOT NULL DEFAULT 'Z',
+    'pregunta_tipo' VARCHAR(32) NOT NULL
+);
+
+-- Dificultad: f=facil, d=Dificil
+
+-- Categoria: H=Historia, M=Musica, D=Artistas, C=Clubs
+
+-- pregunta_tipo: 0=texto, 1=imagen, 2=sonido
+
+INSERT INTO 'preguntas' ('pregunta', 'respuesta_correcta', 'respuesta_incorrecta_1',
+ 'respuesta_incorrecta_2', 'respuesta_incorrecta_3', 'categoria', 'pregunta_tipo')
+VALUES("Cual de estas ciudades no está asociada con la aparición de la música electrónica?",
+     "New York", "Detroit", "Chicago", "Berlin", "H", '0');
+
+INSERT INTO 'preguntas' ('pregunta', 'respuesta_correcta', 'respuesta_incorrecta_1',
+ 'respuesta_incorrecta_2', 'respuesta_incorrecta_3', 'categoria', 'pregunta_tipo')
+VALUES("¿Qué club es considerado el mejor del mundo?",
+     "Berghain\Panorama Bar", "Fabric", "Ushuaia", "Industrial Copera", "C", '0');
