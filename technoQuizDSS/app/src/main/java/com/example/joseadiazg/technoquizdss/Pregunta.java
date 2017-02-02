@@ -10,7 +10,8 @@ public class Pregunta
 {
 
     private String pregunta;
-    private ArrayList<String> respuestas;
+    private ArrayList<String> respuestasIncorrectas;
+    private String respuesta;
 
     private int tipo;
     private String imagen;
@@ -27,12 +28,13 @@ public class Pregunta
         this.imagen=imagen;
         this.sonido=sonido;
 
-        respuestas=new ArrayList<>();
+        this.respuesta=correcta1;
 
-        respuestas.add(0,correcta1);
-        respuestas.add(1,incorrecta1);
-        respuestas.add(2, incorrecta2);
-        respuestas.add(3, incorrecta3);
+        respuestasIncorrectas=new ArrayList<>();
+
+        respuestasIncorrectas.add(0,incorrecta1);
+        respuestasIncorrectas.add(1,incorrecta2);
+        respuestasIncorrectas.add(2,incorrecta3);
     }
 
     public String getImagen()
@@ -55,25 +57,14 @@ public class Pregunta
         return this.pregunta;
     }
 
-    public ArrayList<String> getRespuestas()
+    public ArrayList<String> getRespuestasIncorrectas()
     {
-      return this.respuestas;
+      return this.respuestasIncorrectas;
     }
 
-    public ArrayList<String> getRespuestasErroneas()
-    {
-        ArrayList<String> erroneas = new ArrayList();
-
-        for(int i=1; i<=3; i++)
-        {
-            erroneas.add(respuestas.get(i));
-        }
-
-        return erroneas;
-    }
 
     public String getRespuesta()
     {
-        return this.respuestas.get(0);
+        return this.respuesta;
     }
 }
