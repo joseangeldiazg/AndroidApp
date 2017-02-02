@@ -170,6 +170,26 @@ public class ActivityJuego extends Activity implements View.OnClickListener
     @Override
     public void onClick (View view)
     {
+        Button pulsado = (Button) view;
+
+        if(pulsado.getText().equals(pregunta.getRespuesta()))
+        {
+            //Acierto
+            fallo.stop();
+            acierto.start();
+            instanciaPregunta(listaPreguntas.get(indicePregunta));
+            indicePregunta++;
+            puntuacion++;
+
+        }
+        else
+        {
+            //Fallo
+            acierto.stop();
+            fallo.start();
+            instanciaPregunta(listaPreguntas.get(indicePregunta));
+            indicePregunta++;
+        }
 
     }
 }
