@@ -119,7 +119,7 @@ public class ActivityJuego extends Activity implements View.OnClickListener
         respuesta1.setOnClickListener(this);
         respuesta2.setOnClickListener(this);
         respuesta3.setOnClickListener(this);
-        respuesta3.setOnClickListener(this);
+        respuesta4.setOnClickListener(this);
 
         Collections.shuffle(listaPreguntas);
 
@@ -138,7 +138,11 @@ public class ActivityJuego extends Activity implements View.OnClickListener
 
         //Añadimos las respuestas en un Array para hacer un shuffle y que vayan cambiando de orden
 
-        respuestas=pregunta.getRespuestas();
+        respuestas.add((pregunta.getRespuestasIncorrectas().get(0)));
+        respuestas.add((pregunta.getRespuestasIncorrectas().get(1)));
+        respuestas.add((pregunta.getRespuestasIncorrectas().get(2)));
+        respuestas.add(pregunta.getRespuesta());
+
         Collections.shuffle(respuestas);
 
         this.respuesta1.setText(respuestas.get(0));
@@ -180,13 +184,13 @@ public class ActivityJuego extends Activity implements View.OnClickListener
     {
         Button pulsado = (Button) view;
 
-        if(pulsado.getText().equals(pregunta.getRespuesta()))
+        if(pulsado.getText().toString().equals(pregunta.getRespuesta()))
         {
             //acierto
             //acierto.start();
 
             //Comprobamos que no sea la última pregunta
-            if(indicePregunta<=listaPreguntas.size())
+            if(indicePregunta<listaPreguntas.size())
             {
                 instanciaPregunta(listaPreguntas.get(indicePregunta));
                 indicePregunta++;
@@ -196,24 +200,23 @@ public class ActivityJuego extends Activity implements View.OnClickListener
             {
                 Toast.makeText(this, "HAS FINALIZADO EL JUEGO, HASTA PRONTO", Toast.LENGTH_LONG).show();
                 this.utilidad.setPuntuacion(puntos);
-                this.startActivity(new Intent(ActivityJuego.this, Utilidad.class));
+                this.startActivity(new Intent(ActivityJuego.this, ActivityEstadisticas.class));
             }
         }
         else
         {
             //fallo
             //fallo.start();
-            if(indicePregunta<=listaPreguntas.size())
+            if(indicePregunta<listaPreguntas.size())
             {
                 instanciaPregunta(listaPreguntas.get(indicePregunta));
                 indicePregunta++;
-                this.puntos++;
             }
             else
             {
                 Toast.makeText(this, "HAS FINALIZADO EL JUEGO, HASTA PRONTO", Toast.LENGTH_LONG).show();
                 this.utilidad.setPuntuacion(puntos);
-                this.startActivity(new Intent(ActivityJuego.this, Utilidad.class));
+                this.startActivity(new Intent(ActivityJuego.this, ActivityEstadisticas.class));
             }
         }
 
