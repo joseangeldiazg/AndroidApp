@@ -32,11 +32,6 @@ CREATE TABLE `preguntas` (
 -- 3: sonido
 
 
-INSERT INTO `preguntas` (`pregunta`, `respuesta_correcta`, `respuesta_incorrecta_1`, `respuesta_incorrecta_2`, `respuesta_incorrecta_3`, `categoria`, `imagen`, `tipo`)
-VALUES("¿En qué ciudad estámos?.", "Berlin", "Granada", "Madrid", "Londres", "H","tresor",2);
-
-INSERT INTO `preguntas` (`pregunta`, `respuesta_correcta`, `respuesta_incorrecta_1`, `respuesta_incorrecta_2`, `respuesta_incorrecta_3`, `categoria`, `sonido`, `tipo`)
-VALUES("¿Que canción es la que suena?.", "Plastikman - Spastik", "Jeff Mills - The Bells", "Derrick May - String Of Life", "Carl Craig - At Least", "H","plastikman",3);
 
 INSERT INTO `preguntas` (`pregunta`, `respuesta_correcta`, `respuesta_incorrecta_1`, `respuesta_incorrecta_2`, `respuesta_incorrecta_3`, `categoria`, `tipo`)
 VALUES("¿Cual de estas ciudades no se asocia con el nacimiento de la electrónica?", "New York", "Detroit", "Chicago", "Berlín", "H",1);

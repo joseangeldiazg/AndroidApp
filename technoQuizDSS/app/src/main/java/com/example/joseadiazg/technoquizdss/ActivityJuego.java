@@ -1,6 +1,7 @@
 package com.example.joseadiazg.technoquizdss;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.database.Cursor;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -9,6 +10,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -20,7 +22,7 @@ import java.util.Collections;
 public class ActivityJuego extends Activity implements View.OnClickListener
 {
 
-    private final static int PREGUNTAS=4;
+    private final static int PREGUNTAS=5;
 
     private int indicePregunta=0;
 
@@ -29,6 +31,8 @@ public class ActivityJuego extends Activity implements View.OnClickListener
     private Pregunta pregunta;
 
     private ArrayList<Pregunta>  listaPreguntas = new ArrayList<>();
+
+    private Puntuacion puntuacion;
 
     private TextView preguntaView;
 
@@ -52,7 +56,7 @@ public class ActivityJuego extends Activity implements View.OnClickListener
 
     //Necesitaremos crear una variable para guardar la puntuación
 
-    int puntuacion;
+    int puntos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -64,7 +68,9 @@ public class ActivityJuego extends Activity implements View.OnClickListener
 
         this.db = new DBPref(this);
 
-        this.puntuacion=0;
+        this.puntos=0;
+
+        this.puntuacion = (Puntuacion) this.getApplicationContext();
 
         this.preguntaView = (TextView) findViewById(R.id.preguntaView);
 
@@ -74,6 +80,9 @@ public class ActivityJuego extends Activity implements View.OnClickListener
         this.respuesta4 = (Button) findViewById(R.id.respuesta4);
 
         this.preguntaImagen = (ImageView) findViewById(R.id.preguntaImagen);
+
+        this.acierto = new MediaPlayer();
+        this.fallo = new MediaPlayer();
 
         this.acierto = MediaPlayer.create(this, R.raw.acierto);
         this.fallo = MediaPlayer.create(this, R.raw.fallo);
@@ -174,22 +183,41 @@ public class ActivityJuego extends Activity implements View.OnClickListener
 
         if(pulsado.getText().equals(pregunta.getRespuesta()))
         {
-            //Acierto
-            fallo.stop();
-            acierto.start();
-            instanciaPregunta(listaPreguntas.get(indicePregunta));
-            indicePregunta++;
-            puntuacion++;
+            //acierto
+            //acierto.start();
 
+            //Comprobamos que no sea la última pregunta
+            if(indicePregunta<=listaPreguntas.size())
+            {
+                instanciaPregunta(listaPreguntas.get(indicePregunta));
+                indicePregunta++;
+                this.puntos++;
+            }
+            else
+            {
+                Toast.makeText(this, "HAS FINALIZADO EL JUEGO, HASTA PRONTO", Toast.LENGTH_LONG).show();
+                this.puntuacion.setPuntuacion(puntos);
+                this.startActivity(new Intent(ActivityJuego.this, Puntuacion.class));
+            }
         }
         else
         {
-            //Fallo
-            acierto.stop();
-            fallo.start();
-            instanciaPregunta(listaPreguntas.get(indicePregunta));
-            indicePregunta++;
+            //fallo
+            //fallo.start();
+            if(indicePregunta<=listaPreguntas.size())
+            {
+                instanciaPregunta(listaPreguntas.get(indicePregunta));
+                indicePregunta++;
+                this.puntos++;
+            }
+            else
+            {
+                Toast.makeText(this, "HAS FINALIZADO EL JUEGO, HASTA PRONTO", Toast.LENGTH_LONG).show();
+                this.puntuacion.setPuntuacion(puntos);
+                this.startActivity(new Intent(ActivityJuego.this, Puntuacion.class));
+            }
         }
 
     }
+
 }
