@@ -4,7 +4,9 @@ import android.app.Activity;
 import android.database.Cursor;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -15,10 +17,10 @@ import java.util.Collections;
  * Created by joseadiazg on 31/1/17.
  */
 
-public class ActivityJuego extends Activity
+public class ActivityJuego extends Activity implements View.OnClickListener
 {
 
-    private final static int PREGUNTAS=2;
+    private final static int PREGUNTAS=4;
 
     private int indicePregunta=0;
 
@@ -40,11 +42,17 @@ public class ActivityJuego extends Activity
     private MediaPlayer preguntaSonido;
     private ImageView preguntaImagen;
 
+    private ImageButton botonPlay;
+    private ImageButton botonStop;
+
     //Tendremos que declarar también lo necesario para el sonido de acierto o fallo
 
     private MediaPlayer acierto;
     private MediaPlayer fallo;
 
+    //Necesitaremos crear una variable para guardar la puntuación
+
+    int puntuacion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -55,6 +63,8 @@ public class ActivityJuego extends Activity
         //Instanciamos los atributos
 
         this.db = new DBPref(this);
+
+        this.puntuacion=0;
 
         this.preguntaView = (TextView) findViewById(R.id.preguntaView);
 
@@ -67,6 +77,9 @@ public class ActivityJuego extends Activity
 
         this.acierto = MediaPlayer.create(this, R.raw.acierto);
         this.fallo = MediaPlayer.create(this, R.raw.fallo);
+
+        this.botonPlay = (ImageButton) findViewById(R.id.boton_play);
+        this.botonStop = (ImageButton) findViewById(R.id.boton_pause);
 
         //AQUI CUANDO CREAMOS ESTE CURSOR DEBEREMOS AÑADIR ALGUNA MANERA PARA ELEGIR LA CATEGORIA O LA DIFICULTAD -> OPCIONAL
 
@@ -94,6 +107,11 @@ public class ActivityJuego extends Activity
             } while (cuestiones.moveToNext());
         }
         this.db.close();
+
+        respuesta1.setOnClickListener(this);
+        respuesta2.setOnClickListener(this);
+        respuesta3.setOnClickListener(this);
+        respuesta3.setOnClickListener(this);
 
         Collections.shuffle(listaPreguntas);
 
@@ -124,7 +142,34 @@ public class ActivityJuego extends Activity
 
         switch (pregunta.getTipo())
         {
+            case 1:
+            /*Texto Normal: Debemos ocultar los botones de play y la imagen */
+                this.preguntaImagen.setVisibility(View.INVISIBLE);
+                this.botonStop.setVisibility(View.INVISIBLE);
+                this.botonPlay.setVisibility(View.INVISIBLE);
+                break;
 
+            case 2:
+            /*Imagen: Ocultamos los botones de sonido y hacemos visible la imagen */
+                this.preguntaImagen.setVisibility(View.VISIBLE);
+                this.preguntaImagen.setImageResource(getResources().getIdentifier(this.pregunta.getImagen(), "drawable", getPackageName()));
+                this.botonStop.setVisibility(View.INVISIBLE);
+                this.botonPlay.setVisibility(View.INVISIBLE);
+
+                break;
+
+            case 3:
+            /*Imagen: Ocultamos la imagen y hacemos visible los botones de sonido */
+                this.preguntaImagen.setVisibility(View.INVISIBLE);
+                this.botonStop.setVisibility(View.VISIBLE);
+                this.botonPlay.setVisibility(View.VISIBLE);
+                break;
         }
+    }
+
+    @Override
+    public void onClick (View view)
+    {
+
     }
 }

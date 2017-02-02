@@ -25,8 +25,10 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="52dp"
-            app:srcCompat="@drawable/abc_ab_share_pack_mtrl_alpha"
+            android:src="@drawable/abc_ab_share_pack_mtrl_alpha"
+            android:visibility="invisible"
             android:id="@+id/preguntaImagen" />
+
 
     </LinearLayout>
 
@@ -42,6 +44,7 @@
             android:layout_height="78dp"
             android:layout_marginBottom="3dp"
             android:onClick="play"
+            android:visibility="invisible"
             android:src="@drawable/play" />
 
         <ImageButton
@@ -50,8 +53,8 @@
             android:layout_height="71dp"
             android:layout_marginBottom="3dp"
             android:onClick="pause"
+            android:visibility="invisible"
             android:src="@drawable/stop" />
-
     </LinearLayout>
 
 
