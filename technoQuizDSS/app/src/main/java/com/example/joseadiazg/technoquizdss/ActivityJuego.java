@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * Created by joseadiazg on 31/1/17.
@@ -17,8 +18,9 @@ import java.util.ArrayList;
 public class ActivityJuego extends Activity
 {
 
-
     private final static int PREGUNTAS=2;
+
+    private int indicePregunta=0;
 
     private DBPref db;
 
@@ -92,6 +94,37 @@ public class ActivityJuego extends Activity
             } while (cuestiones.moveToNext());
         }
         this.db.close();
+
+        Collections.shuffle(listaPreguntas);
+
+        instanciaPregunta(listaPreguntas.get(indicePregunta));
+        indicePregunta++;
     }
 
+    public void instanciaPregunta(Pregunta pregunta)
+    {
+
+        ArrayList<String> respuestas = new ArrayList<>();
+
+        //Añadimos la pregunta
+
+        this.preguntaView.setText(pregunta.getPregunta());
+
+        //Añadimos las respuestas en un Array para hacer un shuffle y que vayan cambiando de orden
+
+        respuestas=pregunta.getRespuestas();
+        Collections.shuffle(respuestas);
+
+        this.respuesta1.setText(respuestas.get(0));
+        this.respuesta2.setText(respuestas.get(1));
+        this.respuesta3.setText(respuestas.get(2));
+        this.respuesta4.setText(respuestas.get(3));
+
+        //Ahora en función del tipo de pregunta debemos generar una cosa u otra
+
+        switch (pregunta.getTipo())
+        {
+
+        }
+    }
 }

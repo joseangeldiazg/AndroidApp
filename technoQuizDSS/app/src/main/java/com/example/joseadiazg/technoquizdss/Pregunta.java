@@ -55,13 +55,18 @@ public class Pregunta
         return this.pregunta;
     }
 
-    public String[] getRespuestasErroneas()
+    public ArrayList<String> getRespuestas()
     {
-        String[] erroneas = new String[3];
+      return this.respuestas;
+    }
+
+    public ArrayList<String> getRespuestasErroneas()
+    {
+        ArrayList<String> erroneas = new ArrayList();
 
         for(int i=1; i<=3; i++)
         {
-            erroneas[i]=this.respuestas.get(i);
+            erroneas.add(respuestas.get(i));
         }
 
         return erroneas;
