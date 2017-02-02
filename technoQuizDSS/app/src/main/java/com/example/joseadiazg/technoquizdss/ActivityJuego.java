@@ -22,7 +22,7 @@ import java.util.Collections;
 public class ActivityJuego extends Activity implements View.OnClickListener
 {
 
-    private final static int PREGUNTAS=5;
+    private final static int PREGUNTAS=3;
 
     private int indicePregunta=0;
 
@@ -32,7 +32,7 @@ public class ActivityJuego extends Activity implements View.OnClickListener
 
     private ArrayList<Pregunta>  listaPreguntas = new ArrayList<>();
 
-    private Puntuacion puntuacion;
+    private Utilidad utilidad;
 
     private TextView preguntaView;
 
@@ -64,13 +64,12 @@ public class ActivityJuego extends Activity implements View.OnClickListener
         super.onCreate(savedInstanceState);
         setContentView(R.layout.preguntas);
 
+        this.utilidad = (Utilidad) this.getApplicationContext();
         //Instanciamos los atributos
 
         this.db = new DBPref(this);
 
         this.puntos=0;
-
-        this.puntuacion = (Puntuacion) this.getApplicationContext();
 
         this.preguntaView = (TextView) findViewById(R.id.preguntaView);
 
@@ -196,8 +195,8 @@ public class ActivityJuego extends Activity implements View.OnClickListener
             else
             {
                 Toast.makeText(this, "HAS FINALIZADO EL JUEGO, HASTA PRONTO", Toast.LENGTH_LONG).show();
-                this.puntuacion.setPuntuacion(puntos);
-                this.startActivity(new Intent(ActivityJuego.this, Puntuacion.class));
+                this.utilidad.setPuntuacion(puntos);
+                this.startActivity(new Intent(ActivityJuego.this, Utilidad.class));
             }
         }
         else
@@ -213,8 +212,8 @@ public class ActivityJuego extends Activity implements View.OnClickListener
             else
             {
                 Toast.makeText(this, "HAS FINALIZADO EL JUEGO, HASTA PRONTO", Toast.LENGTH_LONG).show();
-                this.puntuacion.setPuntuacion(puntos);
-                this.startActivity(new Intent(ActivityJuego.this, Puntuacion.class));
+                this.utilidad.setPuntuacion(puntos);
+                this.startActivity(new Intent(ActivityJuego.this, Utilidad.class));
             }
         }
 

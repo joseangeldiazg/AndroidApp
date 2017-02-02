@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 public class ActivityEstadisticas extends AppCompatActivity {
 
-    private Puntuacion puntuacion;
+    private Utilidad utilidad;
 
     private PieChart pieChart;
 
@@ -27,9 +27,9 @@ public class ActivityEstadisticas extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_estadisticas);
 
-        this.puntuacion= (Puntuacion) getApplicationContext();
+        this.utilidad = (Utilidad) getApplicationContext();
 
-        this.aciertos=puntuacion.getPuntuacion();
+        this.aciertos= utilidad.getPuntuacion();
         this.fallos=10-aciertos;
 
         pieChart = (PieChart) findViewById(R.id.pieChart);
@@ -41,8 +41,8 @@ public class ActivityEstadisticas extends AppCompatActivity {
 
 		/*creamos una lista para los valores Y*/
         ArrayList<Entry> valsY = new ArrayList<Entry>();
-        valsY.add(new Entry(this.aciertos* 100 / 10,0));
-        valsY.add(new Entry(this.fallos*100 / 10,0));
+        valsY.add(new Entry(this.aciertos* 100 / 3,0));
+        valsY.add(new Entry(this.fallos*100 / 3,0));
 
  		/*creamos una lista para los valores X*/
         ArrayList<String> valsX = new ArrayList<String>();
