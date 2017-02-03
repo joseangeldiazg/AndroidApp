@@ -17,46 +17,46 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/preguntaView"
-            android:layout_weight="0.11"
             android:textAppearance="@style/TextAppearance.AppCompat.Display2"
             android:textAlignment="center"
-            android:gravity="center"/>
+            android:gravity="center" />
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/abc_ab_share_pack_mtrl_alpha"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="30dp"
             android:id="@+id/preguntaImagen"
-            android:gravity="center"/>
-
+            android:gravity="center"
+            android:layout_weight="0.57" />
 
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/layout_audio"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="56dp"
         android:gravity="center">
 
         <ImageButton
             android:id="@+id/boton_play"
-            android:layout_width="215dp"
+            android:layout_width="70dp"
             android:layout_height="78dp"
             android:layout_marginBottom="3dp"
             android:onClick="play"
             android:visibility="invisible"
             android:src="@drawable/play"
-            android:gravity="center"/>
+            android:gravity="left"/>
 
         <ImageButton
             android:id="@+id/boton_pause"
-            android:layout_width="232dp"
+            android:layout_width="71dp"
             android:layout_height="71dp"
             android:layout_marginBottom="3dp"
             android:onClick="stop"
             android:visibility="invisible"
             android:src="@drawable/stop"
-            android:gravity="center"/>
+            android:gravity="right"/>
     </LinearLayout>
 
 
