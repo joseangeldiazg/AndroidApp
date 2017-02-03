@@ -22,9 +22,11 @@ import java.util.Collections;
 public class ActivityJuego extends Activity implements View.OnClickListener
 {
 
-    private final static int PREGUNTAS=3;
+    private final static int PREGUNTAS=10;
 
     private int indicePregunta=0;
+
+    private boolean haSonado;
 
     private DBPref db;
 
@@ -69,6 +71,7 @@ public class ActivityJuego extends Activity implements View.OnClickListener
 
         this.db = new DBPref(this);
 
+        this.haSonado=false;
         this.puntos=0;
 
         this.preguntaView = (TextView) findViewById(R.id.preguntaView);
@@ -136,6 +139,13 @@ public class ActivityJuego extends Activity implements View.OnClickListener
 
         this.preguntaView.setText(pregunta.getPregunta());
 
+        // Si ha habido sonido lo paramos
+
+        if(haSonado==true)
+        {
+            this.preguntaSonido.stop();
+        }
+
         //Añadimos las respuestas en un Array para hacer un shuffle y que vayan cambiando de orden
 
         respuestas.add((pregunta.getRespuestasIncorrectas().get(0)));
@@ -156,25 +166,28 @@ public class ActivityJuego extends Activity implements View.OnClickListener
         {
             case 1:
             /*Texto Normal: Debemos ocultar los botones de play y la imagen */
-                this.preguntaImagen.setVisibility(View.INVISIBLE);
-                this.botonStop.setVisibility(View.INVISIBLE);
-                this.botonPlay.setVisibility(View.INVISIBLE);
+                this.preguntaImagen.setVisibility(View.GONE);
+                this.botonStop.setVisibility(View.GONE);
+                this.botonPlay.setVisibility(View.GONE);
+                this.haSonado=false;
                 break;
 
             case 2:
             /*Imagen: Ocultamos los botones de sonido y hacemos visible la imagen */
                 this.preguntaImagen.setVisibility(View.VISIBLE);
-                this.preguntaImagen.setImageResource(getResources().getIdentifier(this.pregunta.getImagen(), "drawable", getPackageName()));
-                this.botonStop.setVisibility(View.INVISIBLE);
-                this.botonPlay.setVisibility(View.INVISIBLE);
-
+                this.preguntaImagen.setBackgroundResource(getResources().getIdentifier(this.pregunta.getImagen(), "drawable", getPackageName()));
+                this.botonStop.setVisibility(View.GONE);
+                this.botonPlay.setVisibility(View.GONE);
+                this.haSonado=false;
                 break;
 
             case 3:
             /*Imagen: Ocultamos la imagen y hacemos visible los botones de sonido */
-                this.preguntaImagen.setVisibility(View.INVISIBLE);
+                //this.preguntaSonido=MediaPlayer.create(this, getResources().getIdentifier(this.pregunta.getSonido(), "raw", getPackageName()));
+                this.preguntaImagen.setVisibility(View.GONE);
                 this.botonStop.setVisibility(View.VISIBLE);
                 this.botonPlay.setVisibility(View.VISIBLE);
+                this.haSonado=true;
                 break;
         }
     }
@@ -187,12 +200,13 @@ public class ActivityJuego extends Activity implements View.OnClickListener
         if(pulsado.getText().toString().equals(pregunta.getRespuesta()))
         {
             //acierto
-            //acierto.start();
+            acierto.start();
 
             //Comprobamos que no sea la última pregunta
             if(indicePregunta<listaPreguntas.size())
             {
-                instanciaPregunta(listaPreguntas.get(indicePregunta));
+                this.pregunta=listaPreguntas.get(indicePregunta);
+                instanciaPregunta(this.pregunta);
                 indicePregunta++;
                 this.puntos++;
             }
@@ -206,10 +220,11 @@ public class ActivityJuego extends Activity implements View.OnClickListener
         else
         {
             //fallo
-            //fallo.start();
+            fallo.start();
             if(indicePregunta<listaPreguntas.size())
             {
-                instanciaPregunta(listaPreguntas.get(indicePregunta));
+                this.pregunta=listaPreguntas.get(indicePregunta);
+                instanciaPregunta(this.pregunta);
                 indicePregunta++;
             }
             else
@@ -220,6 +235,18 @@ public class ActivityJuego extends Activity implements View.OnClickListener
             }
         }
 
+    }
+
+    public void play(View view)
+    {
+        this.preguntaSonido=MediaPlayer.create(this, getResources().getIdentifier(this.pregunta.getSonido(), "raw", getPackageName()));
+        this.preguntaSonido.start();
+
+    }
+
+    public void stop(View view)
+    {
+        this.preguntaSonido.stop();
     }
 
 }

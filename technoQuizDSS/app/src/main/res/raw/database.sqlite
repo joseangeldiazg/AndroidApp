@@ -41,3 +41,30 @@ VALUES("¿Cual de estos clubs es considerado el mejor del mundo?", "Berghain", "
 
 INSERT INTO `preguntas` (`pregunta`, `respuesta_correcta`, `respuesta_incorrecta_1`, `respuesta_incorrecta_2`, `respuesta_incorrecta_3`, `categoria`, `tipo`)
 VALUES("Richie Hawtin creo el sello...", "Minus", "Suara", "Cocoon", "Cadenza", "H",1);
+
+INSERT INTO `preguntas` (`pregunta`, `respuesta_correcta`, `respuesta_incorrecta_1`, `respuesta_incorrecta_2`, `respuesta_incorrecta_3`, `categoria`, `tipo`)
+VALUES("¿Quién aka se esconde tras Nick Murphy?", "Chet Faker", "Luke Slater", "Nicolas Jaar", "Flume", "H",1);
+
+INSERT INTO `preguntas` (`pregunta`, `respuesta_correcta`, `respuesta_incorrecta_1`, `respuesta_incorrecta_2`, `respuesta_incorrecta_3`, `categoria`, `tipo`)
+VALUES("¿Quien es realmente Maetrik?", "Maceo Plex", "Dixon", "Ame", "Tale Of Us", "H",1);
+
+INSERT INTO `preguntas` (`pregunta`, `respuesta_correcta`, `respuesta_incorrecta_1`, `respuesta_incorrecta_2`, `respuesta_incorrecta_3`, `categoria`, `imagen`, `tipo`)
+ VALUES("¿En qué ciudad estámos?", "Berlin", "Granada", "Madrid", "Londres", "H","tresor",2);
+
+  INSERT INTO `preguntas` (`pregunta`, `respuesta_correcta`, `respuesta_incorrecta_1`, `respuesta_incorrecta_2`, `respuesta_incorrecta_3`, `categoria`, `imagen`, `tipo`)
+ VALUES("¿Ante que concierto estámos?", "Kraftwerk", "Plastikman", "Depeche Mode", "Bonobo", "H","kraftwerk",2);
+
+  INSERT INTO `preguntas` (`pregunta`, `respuesta_correcta`, `respuesta_incorrecta_1`, `respuesta_incorrecta_2`, `respuesta_incorrecta_3`, `categoria`, `sonido`, `tipo`)
+ VALUES("¿Que canción es la que suena?", "Plastikman - Spastik", "Jeff Mills - The Bells", "Derrick May - String Of Life", "Carl Craig - At Least", "H","plastikman",3);
+
+  INSERT INTO `preguntas` (`pregunta`, `respuesta_correcta`, `respuesta_incorrecta_1`, `respuesta_incorrecta_2`, `respuesta_incorrecta_3`, `categoria`, `sonido`, `tipo`)
+ VALUES("¿Quien es el compositor de esta canción?", "Ricardo Villalobos", "Luciano", "Reboot", "Uner", "H","ricardo",3);
+
+  INSERT INTO `preguntas` (`pregunta`, `respuesta_correcta`, `respuesta_incorrecta_1`, `respuesta_incorrecta_2`, `respuesta_incorrecta_3`, `categoria`, `sonido`, `tipo`)
+ VALUES("¿Durante el verano donde podemos escuchar esta cancion al menos 1 vez a la semana?", "Ants - Ushuaia Ibiza", "El Row - Space Ibiza", "Fabrik Madrid", "Tresor - Berlin", "H","kolsch",3);
+
+
+
+
+
+

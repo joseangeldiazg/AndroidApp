@@ -41,8 +41,8 @@ public class ActivityEstadisticas extends AppCompatActivity {
 
 		/*creamos una lista para los valores Y*/
         ArrayList<Entry> valsY = new ArrayList<Entry>();
-        valsY.add(new Entry(this.aciertos* 100 / 3,0));
-        valsY.add(new Entry(this.fallos*100 / 3,0));
+        valsY.add(new Entry(this.aciertos* 100 / 10,0));
+        valsY.add(new Entry(this.fallos*100 / 10,0));
 
  		/*creamos una lista para los valores X*/
         ArrayList<String> valsX = new ArrayList<String>();
