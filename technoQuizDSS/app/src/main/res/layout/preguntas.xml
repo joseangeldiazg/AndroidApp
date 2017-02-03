@@ -3,45 +3,49 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
     android:weightSum="1">
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="104dp"
-        android:weightSum="1"
-        android:layout_weight="0.49">
+        android:layout_height="wrap_content"
+        android:weightSum="1">
 
         <TextView
             android:text="TextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/preguntaView"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display2"
-            android:textAlignment="center"
-            android:gravity="center" />
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
             android:layout_marginTop="30dp"
-            android:layout_marginBottom="30dp"
-            android:id="@+id/preguntaImagen"
+            android:id="@+id/preguntaView"
+            android:textAlignment="center"
             android:gravity="center"
-            android:layout_weight="0.57" />
+            android:layout_weight="0.53" />
 
     </LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp"
+        android:id="@+id/preguntaImagen"
+        android:gravity="center"
+        android:layout_height="118dp" />
 
     <LinearLayout
         android:id="@+id/layout_audio"
         android:layout_width="match_parent"
-        android:layout_height="56dp"
+        android:layout_marginTop="30dp"
+        android:layout_height="wrap_content"
         android:gravity="center">
 
         <ImageButton
             android:id="@+id/boton_play"
             android:layout_width="70dp"
-            android:layout_height="78dp"
+            android:layout_height="69dp"
             android:layout_marginBottom="3dp"
             android:onClick="play"
             android:visibility="invisible"
@@ -70,19 +74,19 @@
         <Button
             android:text="Respuesta1"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="36dp"
             android:id="@+id/respuesta1" />
 
         <Button
             android:text="Respuesta2"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="37dp"
             android:id="@+id/respuesta2" />
 
         <Button
             android:text="respuesta3"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="37dp"
             android:id="@+id/respuesta3" />
 
 
@@ -90,7 +94,7 @@
         <Button
             android:text="respuesta4"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="37dp"
             android:id="@+id/respuesta4" />
     </LinearLayout>
 </LinearLayout>
