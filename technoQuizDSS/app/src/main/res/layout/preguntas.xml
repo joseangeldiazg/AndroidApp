@@ -77,19 +77,19 @@
         <Button
             android:text="Respuesta1"
             android:layout_width="match_parent"
-            android:layout_height="36dp"
+            android:layout_height="40dp"
             android:id="@+id/respuesta1" />
 
         <Button
             android:text="Respuesta2"
             android:layout_width="match_parent"
-            android:layout_height="37dp"
+            android:layout_height="40dp"
             android:id="@+id/respuesta2" />
 
         <Button
             android:text="respuesta3"
             android:layout_width="match_parent"
-            android:layout_height="37dp"
+            android:layout_height="40dp"
             android:id="@+id/respuesta3" />
 
 
@@ -97,7 +97,7 @@
         <Button
             android:text="respuesta4"
             android:layout_width="match_parent"
-            android:layout_height="37dp"
+            android:layout_height="40dp"
             android:id="@+id/respuesta4" />
     </LinearLayout>
 </LinearLayout>

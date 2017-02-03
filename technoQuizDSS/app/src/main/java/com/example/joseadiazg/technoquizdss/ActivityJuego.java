@@ -66,7 +66,10 @@ public class ActivityJuego extends Activity implements View.OnClickListener
         super.onCreate(savedInstanceState);
         setContentView(R.layout.preguntas);
 
+
         this.utilidad = (Utilidad) this.getApplicationContext();
+
+
         //Instanciamos los atributos
 
         this.db = new DBPref(this);
@@ -94,7 +97,7 @@ public class ActivityJuego extends Activity implements View.OnClickListener
 
         //AQUI CUANDO CREAMOS ESTE CURSOR DEBEREMOS AÑADIR ALGUNA MANERA PARA ELEGIR LA CATEGORIA O LA DIFICULTAD -> OPCIONAL
 
-        Cursor cuestiones = this.db.getPreguntas(DBPref.Categoria.HISTORIA, DBPref.Dificultad.FACIL, PREGUNTAS);
+        Cursor cuestiones = this.db.getPreguntas(this.utilidad.getCategoria(), DBPref.Dificultad.FACIL, PREGUNTAS);
 
         if (cuestiones.moveToFirst()) {
             do {
@@ -212,7 +215,7 @@ public class ActivityJuego extends Activity implements View.OnClickListener
             }
             else
             {
-                Toast.makeText(this, "HAS FINALIZADO EL JUEGO, HASTA PRONTO", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "HAS FINALIZADO EL JUEGO. VEAMOS...", Toast.LENGTH_LONG).show();
                 this.utilidad.setPuntuacion(puntos);
                 this.utilidad.setJuegoTerminado(true);
                 this.startActivity(new Intent(ActivityJuego.this, ActivityEstadisticas.class));
@@ -230,7 +233,7 @@ public class ActivityJuego extends Activity implements View.OnClickListener
             }
             else
             {
-                Toast.makeText(this, "HAS FINALIZADO EL JUEGO, HASTA PRONTO", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "HAS FINALIZADO EL JUEGO. VEAMOS...", Toast.LENGTH_LONG).show();
                 this.utilidad.setPuntuacion(puntos);
                 this.utilidad.setJuegoTerminado(true);
                 this.startActivity(new Intent(ActivityJuego.this, ActivityEstadisticas.class));
@@ -241,6 +244,8 @@ public class ActivityJuego extends Activity implements View.OnClickListener
 
     public void play(View view)
     {
+
+        this.preguntaSonido.reset();
         this.preguntaSonido=MediaPlayer.create(this, getResources().getIdentifier(this.pregunta.getSonido(), "raw", getPackageName()));
         this.preguntaSonido.start();
 

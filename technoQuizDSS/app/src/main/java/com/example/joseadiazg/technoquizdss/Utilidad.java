@@ -13,6 +13,8 @@ public class Utilidad extends Application {
 
     private boolean juegoTerminado=false;
 
+    private DBPref.Categoria categoria = DBPref.Categoria.HISTORIA;
+
     @Override
     public void onCreate()
     {
@@ -56,5 +58,15 @@ public class Utilidad extends Application {
     public void setJuegoTerminado(boolean cambio)
     {
         this.juegoTerminado=cambio;
+    }
+
+    public void setCategoria(DBPref.Categoria categoria)
+    {
+        this.categoria=categoria;
+    }
+
+    public DBPref.Categoria getCategoria()
+    {
+        return this.categoria;
     }
 }

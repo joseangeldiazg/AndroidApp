@@ -1,8 +1,9 @@
 <resources>
     <string name="app_name">technoQuizDSS</string>
     <string name="title_activity_estadisticas">estadisticas</string>
-    <string name="saludo">Bienvenido a TechnoQuiz. Vamos a ver si eres un verdadero experto en música electrónica...</string>
+    <string name="saludo">Bienvenido a Berghain. En este club solo pueden entrar expertos en música electrónica...</string>
     <string name="estadisticasGana">Parece que eres un verdadero experto en electrónica. Puedes entrar en Berghain. </string>
-    <string name="estadisticasNoJugado">Cuando respondas mis preguntas aquí veras mi criterio acerca de dejarte pasar... </string>
-    <string name="estadisticasPierde">Parece que eres un turista. Lo siento pero no puedes pasar, vuelve a intentarlo.</string>
+    <string name="estadisticasNoJugado">Cuando respondas mis preguntas aquí verás mi criterio acerca de dejarte pasar... </string>
+    <string name="estadisticasPierde">Parece que eres un turista. No puedes pasar, vuelve a intentarlo.</string>
+    <string name="categoria">Te dejaré elegir sobre que quieres que te pregunte...</string>
 </resources>

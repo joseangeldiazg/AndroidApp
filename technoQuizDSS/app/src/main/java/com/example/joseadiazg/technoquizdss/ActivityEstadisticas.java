@@ -42,7 +42,7 @@ public class ActivityEstadisticas extends AppCompatActivity {
         texto.setText(R.string.estadisticasGana);
 
         this.aciertos= utilidad.getPuntuacion();
-        this.fallos=10-aciertos;
+        this.fallos=5-aciertos;
 
         if((this.aciertos>=this.fallos)&&(this.utilidad.getJuegoTerminado()))
         {
@@ -70,8 +70,8 @@ public class ActivityEstadisticas extends AppCompatActivity {
 
 		/*creamos una lista para los valores Y*/
         ArrayList<Entry> valsY = new ArrayList<Entry>();
-        valsY.add(new Entry(this.aciertos* 100 / 10,0));
-        valsY.add(new Entry(this.fallos*100 / 10,0));
+        valsY.add(new Entry(this.aciertos* 100 / 5,0));
+        valsY.add(new Entry(this.fallos*100 / 5,0));
 
  		/*creamos una lista para los valores X*/
         ArrayList<String> valsX = new ArrayList<String>();
