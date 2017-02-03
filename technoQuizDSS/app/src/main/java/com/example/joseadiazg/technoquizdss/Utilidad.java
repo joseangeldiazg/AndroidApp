@@ -11,6 +11,8 @@ public class Utilidad extends Application {
 
     private int puntuacion = 0;
 
+    private boolean juegoTerminado=false;
+
     @Override
     public void onCreate()
     {
@@ -44,5 +46,15 @@ public class Utilidad extends Application {
     void setPuntuacion(int puntuacion)
     {
         this.puntuacion = puntuacion;
+    }
+
+    public boolean getJuegoTerminado()
+    {
+        return this.juegoTerminado;
+    }
+
+    public void setJuegoTerminado(boolean cambio)
+    {
+        this.juegoTerminado=cambio;
     }
 }

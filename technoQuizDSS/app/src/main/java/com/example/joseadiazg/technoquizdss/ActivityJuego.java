@@ -214,6 +214,7 @@ public class ActivityJuego extends Activity implements View.OnClickListener
             {
                 Toast.makeText(this, "HAS FINALIZADO EL JUEGO, HASTA PRONTO", Toast.LENGTH_LONG).show();
                 this.utilidad.setPuntuacion(puntos);
+                this.utilidad.setJuegoTerminado(true);
                 this.startActivity(new Intent(ActivityJuego.this, ActivityEstadisticas.class));
             }
         }
@@ -231,6 +232,7 @@ public class ActivityJuego extends Activity implements View.OnClickListener
             {
                 Toast.makeText(this, "HAS FINALIZADO EL JUEGO, HASTA PRONTO", Toast.LENGTH_LONG).show();
                 this.utilidad.setPuntuacion(puntos);
+                this.utilidad.setJuegoTerminado(true);
                 this.startActivity(new Intent(ActivityJuego.this, ActivityEstadisticas.class));
             }
         }

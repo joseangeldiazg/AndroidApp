@@ -2,6 +2,9 @@ package com.example.joseadiazg.technoquizdss;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.FrameLayout;
+import android.widget.TextView;
 
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.data.PieData;
@@ -21,6 +24,10 @@ public class ActivityEstadisticas extends AppCompatActivity {
 
     private int fallos;
 
+    private FrameLayout layout;
+
+    private TextView texto;
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -29,8 +36,30 @@ public class ActivityEstadisticas extends AppCompatActivity {
 
         this.utilidad = (Utilidad) getApplicationContext();
 
+        this.texto = (TextView) findViewById(R.id.textView);
+        this.layout = (FrameLayout) findViewById(R.id.layout_estadisticas);
+
+        texto.setText(R.string.estadisticasGana);
+
         this.aciertos= utilidad.getPuntuacion();
         this.fallos=10-aciertos;
+
+        if((this.aciertos>=this.fallos)&&(this.utilidad.getJuegoTerminado()))
+        {
+            texto.setText(R.string.estadisticasGana);
+            this.layout.setVisibility(View.VISIBLE);
+        }
+        else if((this.fallos>this.aciertos)&&(this.utilidad.getJuegoTerminado()))
+        {
+            texto.setText(R.string.estadisticasPierde);
+            this.layout.setVisibility(View.VISIBLE);
+        }
+        else
+        {
+            texto.setText(R.string.estadisticasNoJugado);
+            this.layout.setVisibility(View.GONE);
+        }
+
 
         pieChart = (PieChart) findViewById(R.id.pieChart);
 
@@ -68,6 +97,7 @@ public class ActivityEstadisticas extends AppCompatActivity {
         /*Ocutar descripcion*/
         pieChart.setDescription("");
         /*Ocultar leyenda*/
+        pieChart.getLegend().setEnabled(false);
 
     }
 }
