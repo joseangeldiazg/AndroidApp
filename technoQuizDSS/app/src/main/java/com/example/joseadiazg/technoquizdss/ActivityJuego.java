@@ -183,7 +183,7 @@ public class ActivityJuego extends Activity implements View.OnClickListener
 
             case 3:
             /*Imagen: Ocultamos la imagen y hacemos visible los botones de sonido */
-                //this.preguntaSonido=MediaPlayer.create(this, getResources().getIdentifier(this.pregunta.getSonido(), "raw", getPackageName()));
+                this.preguntaSonido=MediaPlayer.create(this, getResources().getIdentifier(this.pregunta.getSonido(), "raw", getPackageName()));
                 this.preguntaImagen.setVisibility(View.GONE);
                 this.botonStop.setVisibility(View.VISIBLE);
                 this.botonPlay.setVisibility(View.VISIBLE);

@@ -49,7 +49,8 @@
         android:layout_marginBottom="101dp"
         android:layout_above="@+id/button"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:gravity="center"/>
 
     <TextView
         android:text="Bienvenido a TechnoQuiz. Vamos a ver si eres un verdadero experto en música electrónica..."
@@ -61,5 +62,6 @@
         android:layout_above="@+id/button"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:gravity="center"/>
 </RelativeLayout>
