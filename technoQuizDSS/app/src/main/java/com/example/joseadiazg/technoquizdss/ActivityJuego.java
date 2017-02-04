@@ -223,13 +223,14 @@ public class ActivityJuego extends AppCompatActivity implements View.OnClickList
             {
                 this.pregunta=listaPreguntas.get(indicePregunta);
                 Toast.makeText(this, R.string.acierto, Toast.LENGTH_SHORT).show();
-                instanciaPregunta(this.pregunta);
                 indicePregunta++;
                 this.puntos++;
+                instanciaPregunta(this.pregunta);
             }
             else
             {
                 Toast.makeText(this, R.string.finjuego, Toast.LENGTH_LONG).show();
+                this.puntos++;
                 this.utilidad.setPuntuacion(puntos);
                 this.utilidad.setJuegoTerminado(true);
                 if(haSonado){this.preguntaSonido.stop();}
