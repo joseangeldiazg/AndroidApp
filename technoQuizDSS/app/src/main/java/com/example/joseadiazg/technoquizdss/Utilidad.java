@@ -13,6 +13,8 @@ public class Utilidad extends Application {
 
     private boolean juegoTerminado=false;
 
+    private boolean segundoIntento=false;
+
     private DBPref.Categoria categoria = DBPref.Categoria.HISTORIA;
 
     @Override
@@ -68,5 +70,15 @@ public class Utilidad extends Application {
     public DBPref.Categoria getCategoria()
     {
         return this.categoria;
+    }
+
+    public boolean getSegundoIntento()
+    {
+        return this.segundoIntento;
+    }
+
+    public void setSegundoIntento(boolean bool)
+    {
+        this.setSegundoIntento(bool);
     }
 }

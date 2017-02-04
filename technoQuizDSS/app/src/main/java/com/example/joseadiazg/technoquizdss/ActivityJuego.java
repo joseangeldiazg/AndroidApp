@@ -1,10 +1,13 @@
 package com.example.joseadiazg.technoquizdss;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.internal.view.ContextThemeWrapper;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -219,7 +222,7 @@ public class ActivityJuego extends AppCompatActivity implements View.OnClickList
             if(indicePregunta<listaPreguntas.size())
             {
                 this.pregunta=listaPreguntas.get(indicePregunta);
-                Toast.makeText(this, R.string.acierto, Toast.LENGTH_LONG).show();
+                Toast.makeText(this, R.string.acierto, Toast.LENGTH_SHORT).show();
                 instanciaPregunta(this.pregunta);
                 indicePregunta++;
                 this.puntos++;
@@ -237,32 +240,47 @@ public class ActivityJuego extends AppCompatActivity implements View.OnClickList
         {
             //fallo
             fallo.start();
-            if(indicePregunta<listaPreguntas.size())
-            {
-                this.pregunta=listaPreguntas.get(indicePregunta);
-                Toast.makeText(this, R.string.fallo, Toast.LENGTH_LONG).show();
-                instanciaPregunta(this.pregunta);
-                indicePregunta++;
-            }
-            else
-            {
-                Toast.makeText(this, R.string.finjuego, Toast.LENGTH_LONG).show();
-                this.utilidad.setPuntuacion(puntos);
-                this.utilidad.setJuegoTerminado(true);
-                if(haSonado){this.preguntaSonido.stop();}
-                this.startActivity(new Intent(ActivityJuego.this, ActivityEstadisticas.class));
-            }
-        }
 
+            AlertDialog.Builder alert = new AlertDialog.Builder(new ContextThemeWrapper(this, R.style.AlertDialogCustom));
+            alert
+                    .setMessage("¿Quieres continuar o vuelves al inicio de la cola?")
+                    .setPositiveButton("Continuar", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int id)
+                        {
+                            if(indicePregunta<listaPreguntas.size())
+                            {
+                                pregunta=listaPreguntas.get(indicePregunta);
+                                instanciaPregunta(pregunta);
+                                indicePregunta++;
+                            }
+                            else
+                            {
+                                utilidad.setPuntuacion(puntos);
+                                utilidad.setJuegoTerminado(true);
+                                if(haSonado){preguntaSonido.stop();}
+                                startActivity(new Intent(ActivityJuego.this, ActivityEstadisticas.class));
+                            }
+                        }
+                    })
+                    .setNegativeButton("Volver a la cola", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int id)
+                        {
+                            finish();
+                        }
+                    })
+                    .setTitle(R.string.sven)
+                    .setIcon(R.drawable.sven)
+                    .show();
+        }
     }
     public void play(View view)
     {
         this.preguntaSonido.reset();
         this.preguntaSonido=MediaPlayer.create(this, getResources().getIdentifier(this.pregunta.getSonido(), "raw", getPackageName()));
         this.preguntaSonido.start();
-
     }
-
     public void stop(View view)
     {
         this.preguntaSonido.stop();

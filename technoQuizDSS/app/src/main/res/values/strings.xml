@@ -10,4 +10,5 @@
     <string name="ayuda">Aqui encontraras web de ayuda para superar el juego.</string>
     <string name="fallo">Has fallado.</string>
     <string name="acierto">Has acertado.</string>
+    <string name="sven">Soy Sven, el portero. Has fallado mi pregunta.</string>
 </resources>
