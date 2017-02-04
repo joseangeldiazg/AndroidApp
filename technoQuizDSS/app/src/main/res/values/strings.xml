@@ -8,4 +8,6 @@
     <string name="categoria">Te dejaré elegir sobre que quieres que te pregunte...</string>
     <string name="finjuego">HAS FINALIZADO EL JUEGO. VEAMOS...</string>
     <string name="ayuda">Aqui encontraras web de ayuda para superar el juego.</string>
+    <string name="fallo">Has fallado.</string>
+    <string name="acierto">Has acertado.</string>
 </resources>

@@ -219,6 +219,7 @@ public class ActivityJuego extends AppCompatActivity implements View.OnClickList
             if(indicePregunta<listaPreguntas.size())
             {
                 this.pregunta=listaPreguntas.get(indicePregunta);
+                Toast.makeText(this, R.string.acierto, Toast.LENGTH_LONG).show();
                 instanciaPregunta(this.pregunta);
                 indicePregunta++;
                 this.puntos++;
@@ -239,6 +240,7 @@ public class ActivityJuego extends AppCompatActivity implements View.OnClickList
             if(indicePregunta<listaPreguntas.size())
             {
                 this.pregunta=listaPreguntas.get(indicePregunta);
+                Toast.makeText(this, R.string.fallo, Toast.LENGTH_LONG).show();
                 instanciaPregunta(this.pregunta);
                 indicePregunta++;
             }
