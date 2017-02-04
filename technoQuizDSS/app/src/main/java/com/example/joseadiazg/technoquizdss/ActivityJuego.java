@@ -21,9 +21,9 @@ import java.util.Collections;
 
 public class ActivityJuego extends AppCompatActivity implements View.OnClickListener
 {
-    private final static int PREGUNTAS=10;
+    private final static int PREGUNTAS=5;
 
-    private int indicePregunta=0;
+    private int indicePregunta;
 
     private boolean haSonado;
 
@@ -75,6 +75,7 @@ public class ActivityJuego extends AppCompatActivity implements View.OnClickList
 
         this.haSonado=false;
         this.puntos=0;
+        this.indicePregunta=0;
 
         this.preguntaView = (TextView) findViewById(R.id.preguntaView);
 
@@ -121,15 +122,21 @@ public class ActivityJuego extends AppCompatActivity implements View.OnClickList
         }
         this.db.close();
 
+
+        int tipo =listaPreguntas.get(indicePregunta).getTipo();
+        do{
+            Collections.shuffle(listaPreguntas);
+            tipo = listaPreguntas.get(indicePregunta).getTipo();
+        } while (tipo!=1);
+
+        instanciaPregunta(listaPreguntas.get(indicePregunta));
+        indicePregunta++;
+
         respuesta1.setOnClickListener(this);
         respuesta2.setOnClickListener(this);
         respuesta3.setOnClickListener(this);
         respuesta4.setOnClickListener(this);
 
-        Collections.shuffle(listaPreguntas);
-
-        instanciaPregunta(listaPreguntas.get(indicePregunta));
-        indicePregunta++;
     }
 
     public void instanciaPregunta(Pregunta pregunta)
@@ -147,6 +154,8 @@ public class ActivityJuego extends AppCompatActivity implements View.OnClickList
         {
             this.preguntaSonido.stop();
         }
+
+        //Solución del problema que impide mostrar imagén al iniciar la actividad
 
         //Añadimos las respuestas en un Array para hacer un shuffle y que vayan cambiando de orden
 
@@ -169,6 +178,7 @@ public class ActivityJuego extends AppCompatActivity implements View.OnClickList
             case 1:
             /*Texto Normal: Debemos ocultar los botones de play y la imagen */
                 this.preguntaImagen.setVisibility(View.GONE);
+                this.preguntaImagen.setBackgroundResource(0);
                 this.botonStop.setVisibility(View.GONE);
                 this.botonPlay.setVisibility(View.GONE);
                 this.haSonado=false;
@@ -187,6 +197,7 @@ public class ActivityJuego extends AppCompatActivity implements View.OnClickList
             /*Imagen: Ocultamos la imagen y hacemos visible los botones de sonido */
                 this.preguntaSonido=MediaPlayer.create(this, getResources().getIdentifier(this.pregunta.getSonido(), "raw", getPackageName()));
                 this.preguntaImagen.setVisibility(View.GONE);
+                this.preguntaImagen.setBackgroundResource(0);
                 this.botonStop.setVisibility(View.VISIBLE);
                 this.botonPlay.setVisibility(View.VISIBLE);
                 this.haSonado=true;
@@ -217,6 +228,7 @@ public class ActivityJuego extends AppCompatActivity implements View.OnClickList
                 Toast.makeText(this, "HAS FINALIZADO EL JUEGO. VEAMOS...", Toast.LENGTH_LONG).show();
                 this.utilidad.setPuntuacion(puntos);
                 this.utilidad.setJuegoTerminado(true);
+                if(haSonado){this.preguntaSonido.stop();}
                 this.startActivity(new Intent(ActivityJuego.this, ActivityEstadisticas.class));
             }
         }
@@ -235,6 +247,7 @@ public class ActivityJuego extends AppCompatActivity implements View.OnClickList
                 Toast.makeText(this, "HAS FINALIZADO EL JUEGO. VEAMOS...", Toast.LENGTH_LONG).show();
                 this.utilidad.setPuntuacion(puntos);
                 this.utilidad.setJuegoTerminado(true);
+                if(haSonado){this.preguntaSonido.stop();}
                 this.startActivity(new Intent(ActivityJuego.this, ActivityEstadisticas.class));
             }
         }
@@ -242,7 +255,6 @@ public class ActivityJuego extends AppCompatActivity implements View.OnClickList
     }
     public void play(View view)
     {
-
         this.preguntaSonido.reset();
         this.preguntaSonido=MediaPlayer.create(this, getResources().getIdentifier(this.pregunta.getSonido(), "raw", getPackageName()));
         this.preguntaSonido.start();
@@ -253,5 +265,4 @@ public class ActivityJuego extends AppCompatActivity implements View.OnClickList
     {
         this.preguntaSonido.stop();
     }
-
 }

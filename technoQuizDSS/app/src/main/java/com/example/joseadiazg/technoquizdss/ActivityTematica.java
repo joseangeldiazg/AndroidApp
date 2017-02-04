@@ -37,12 +37,14 @@ public class ActivityTematica extends AppCompatActivity implements View.OnClickL
         if(pulsado.getId()==R.id.artistas)
         {
             this.utilidad.setCategoria(DBPref.Categoria.ARTISTAS);
-            this.startActivity(new Intent(ActivityTematica.this, ActivityJuego.class));
+            Intent intent = new Intent(v.getContext(), ActivityJuego.class);
+            startActivityForResult(intent, 0);
         }
         else if(pulsado.getId()==R.id.historia)
         {
-            this.startActivity(new Intent(ActivityTematica.this, ActivityJuego.class));
             this.utilidad.setCategoria(DBPref.Categoria.HISTORIA);
+            Intent intent = new Intent(v.getContext(), ActivityJuego.class);
+            startActivityForResult(intent, 0);
         }
 
 
