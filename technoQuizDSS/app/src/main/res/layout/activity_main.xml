@@ -23,7 +23,7 @@
         android:layout_alignStart="@+id/button" />
 
     <Button
-        android:text="Mas Juegos"
+        android:text="Webs de Ayuda"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/button3"

@@ -225,7 +225,7 @@ public class ActivityJuego extends AppCompatActivity implements View.OnClickList
             }
             else
             {
-                Toast.makeText(this, "HAS FINALIZADO EL JUEGO. VEAMOS...", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, R.string.finjuego, Toast.LENGTH_LONG).show();
                 this.utilidad.setPuntuacion(puntos);
                 this.utilidad.setJuegoTerminado(true);
                 if(haSonado){this.preguntaSonido.stop();}
@@ -244,7 +244,7 @@ public class ActivityJuego extends AppCompatActivity implements View.OnClickList
             }
             else
             {
-                Toast.makeText(this, "HAS FINALIZADO EL JUEGO. VEAMOS...", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, R.string.finjuego, Toast.LENGTH_LONG).show();
                 this.utilidad.setPuntuacion(puntos);
                 this.utilidad.setJuegoTerminado(true);
                 if(haSonado){this.preguntaSonido.stop();}

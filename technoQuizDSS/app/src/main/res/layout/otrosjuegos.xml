@@ -11,7 +11,7 @@
     android:background="@drawable/fondo">
 
     <TextView
-        android:text="Juego 1"
+        android:text="Web de ayuda 1"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight=".05"
@@ -27,7 +27,7 @@
         android:layout_weight=".45"/>
 
     <TextView
-        android:text="Juego 2"
+        android:text="Web de Ayuda 2"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:id="@+id/textView4"

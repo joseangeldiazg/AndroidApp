@@ -6,4 +6,6 @@
     <string name="estadisticasNoJugado">Cuando respondas mis preguntas aquí verás mi criterio acerca de dejarte pasar... </string>
     <string name="estadisticasPierde">Parece que eres un turista. No puedes pasar, vuelve a intentarlo.</string>
     <string name="categoria">Te dejaré elegir sobre que quieres que te pregunte...</string>
+    <string name="finjuego">HAS FINALIZADO EL JUEGO. VEAMOS...</string>
+    <string name="ayuda">Aqui encontraras web de ayuda para superar el juego.</string>
 </resources>

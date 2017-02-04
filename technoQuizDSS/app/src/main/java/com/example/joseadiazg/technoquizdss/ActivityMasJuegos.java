@@ -3,6 +3,7 @@ package com.example.joseadiazg.technoquizdss;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.webkit.WebView;
+import android.widget.Toast;
 
 /**
  * Created by joseadiazg on 25/1/17.
@@ -23,5 +24,6 @@ public class ActivityMasJuegos extends AppCompatActivity
         WebView juego2= (WebView) this.findViewById(R.id.webView2);
         juego2.loadUrl("http://growsoundmag.com/category/alternativo/");
 
+        Toast.makeText(this, R.string.ayuda, Toast.LENGTH_LONG).show();
     }
 }
