@@ -1,10 +1,10 @@
 package com.example.joseadiazg.technoquizdss;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -19,9 +19,8 @@ import java.util.Collections;
  * Created by joseadiazg on 31/1/17.
  */
 
-public class ActivityJuego extends Activity implements View.OnClickListener
+public class ActivityJuego extends AppCompatActivity implements View.OnClickListener
 {
-
     private final static int PREGUNTAS=10;
 
     private int indicePregunta=0;
@@ -241,7 +240,6 @@ public class ActivityJuego extends Activity implements View.OnClickListener
         }
 
     }
-
     public void play(View view)
     {
 

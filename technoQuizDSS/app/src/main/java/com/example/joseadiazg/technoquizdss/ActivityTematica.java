@@ -1,12 +1,12 @@
 package com.example.joseadiazg.technoquizdss;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageButton;
 
-public class ActivityTematica extends Activity implements View.OnClickListener
+public class ActivityTematica extends AppCompatActivity implements View.OnClickListener
 {
 
 
